@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abu Md. Moniruzzaman — Agricultural Extension & Digital Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0a2e1a;
+  --green-mid: #1a5c32;
+  --green-bright: #2d8a4e;
+  --green-light: #4ab870;
+  --green-pale: #a8d8b0;
+  --gold: #c9a227;
+  --gold-light: #e8c55a;
+  --cream: #f7f3ec;
+  --white: #ffffff;
+  --text-dark: #1a2418;
+  --text-mid: #3d5a3e;
+  --text-light: #7a9b7c;
+  --border: rgba(45,138,78,0.15);
+  --shadow: 0 20px 60px rgba(10,46,26,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 4vw;
+  background: rgba(247,243,236,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 24px rgba(10,46,26,0.12); }
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 1.15rem;
+  color: var(--green-deep);
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.875rem; font-weight: 500; color: var(--text-mid);
+  text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-bright); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(45,138,78,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-left {
+  padding: 10rem 4vw 4rem 8vw;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  color: var(--green-pale);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 2rem;
+  margin-bottom: 1.5rem; width: fit-content;
+}
+.hero-badge::before { content: '●'; color: var(--green-light); font-size: 0.6rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 900; line-height: 1.08;
+  color: var(--green-deep);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.hero-name .highlight {
+  color: var(--green-bright);
+  position: relative; display: inline-block;
+}
+.hero-title {
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--text-mid);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.01em;
+}
+.hero-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem; color: var(--gold);
+  font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hero-tagline {
+  font-size: 1.1rem; color: var(--text-mid);
+  max-width: 480px; line-height: 1.65;
+  border-left: 3px solid var(--green-bright);
+  padding-left: 1.25rem; margin-bottom: 2.5rem;
+  font-style: italic;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--green-deep);
+  color: var(--white); padding: 0.8rem 1.8rem;
+  border: none; border-radius: 0.4rem; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  transition: all 0.25s; letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: var(--green-bright); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,138,78,0.35); }
+.btn-outline {
+  border: 2px solid var(--green-deep);
+  color: var(--green-deep); padding: 0.8rem 1.8rem;
+  border-radius: 0.4rem; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  transition: all 0.25s; letter-spacing: 0.02em;
+  background: transparent;
+}
+.btn-outline:hover { background: var(--green-deep); color: var(--white); transform: translateY(-2px); }
+
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  padding: 8rem 8vw 4rem 4vw;
+  position: relative; z-index: 1;
+}
+.hero-card {
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  max-width: 380px; width: 100%;
+  animation: floatCard 6s ease-in-out infinite;
+}
+@keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.card-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(45,138,78,0.3);
+}
+.card-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.25rem; }
+.card-role { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 1.25rem; line-height: 1.4; }
+.card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+.stat-box {
+  background: var(--cream);
+  border-radius: 0.75rem; padding: 0.85rem;
+  text-align: center; border: 1px solid var(--border);
+}
+.stat-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--green-bright); line-height: 1; }
+.stat-label { font-size: 0.7rem; color: var(--text-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; }
+.card-contact { display: flex; flex-direction: column; gap: 0.5rem; }
+.contact-item { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-mid); display: flex; align-items: center; gap: 0.5rem; }
+.contact-item span { font-size: 0.85rem; }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 8vw; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; font-weight: 500; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; color: var(--green-deep);
+  letter-spacing: -0.02em; line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.section-sub { font-size: 1.05rem; color: var(--text-mid); max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
+
+/* ── ABOUT ── */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+.about-sidebar {}
+.expertise-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+.expertise-item {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem; padding: 1rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.expertise-icon { font-size: 1.25rem; }
+.expertise-text { font-size: 0.875rem; font-weight: 500; color: var(--text-dark); }
+.about-body p { font-size: 1rem; color: var(--text-mid); margin-bottom: 1.25rem; line-height: 1.8; }
+.vision-box {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  border-radius: 1rem; padding: 2rem;
+  margin-top: 2rem;
+  position: relative; overflow: hidden;
+}
+.vision-box::before {
+  content: '"';
+  position: absolute; top: -1rem; left: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem; color: rgba(255,255,255,0.06); line-height: 1;
+  pointer-events: none;
+}
+.vision-box p {
+  font-size: 1rem; color: var(--green-pale);
+  font-style: italic; line-height: 1.7;
+  position: relative; z-index: 1;
+}
+.vision-box .vision-author { margin-top: 1rem; font-size: 0.8rem; color: var(--green-light); font-style: normal; font-family: 'DM Mono', monospace; }
+
+/* ── CAREER ── */
+#career { background: var(--cream); }
+.timeline { position: relative; padding-left: 3rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 0.75rem; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--green-bright), var(--green-pale));
+}
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-dot {
+  position: absolute; left: -2.25rem; top: 0.35rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--green-bright);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--green-bright);
+}
+.timeline-item.current .timeline-dot {
+  background: var(--gold); box-shadow: 0 0 0 2px var(--gold);
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot { 0%,100%{box-shadow:0 0 0 2px var(--gold)} 50%{box-shadow:0 0 0 6px rgba(201,162,39,0.25)} }
+.timeline-period {
+  font-family: 'DM Mono', monospace; font-size: 0.72rem;
+  color: var(--gold); font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 0.35rem;
+}
+.timeline-role { font-size: 1.05rem; font-weight: 600; color: var(--green-deep); margin-bottom: 0.2rem; }
+.timeline-location { font-size: 0.875rem; color: var(--text-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
+.timeline-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+
+/* ── PROJECTS ── */
+#projects { background: var(--green-deep); }
+#projects .section-label { color: var(--green-light); }
+#projects .section-title { color: var(--white); }
+#projects .section-sub { color: var(--green-pale); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.project-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.25rem; padding: 2rem;
+  transition: all 0.3s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--project-accent, var(--green-bright));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); transform: translateY(-4px); }
+.project-card:hover::before { transform: scaleX(1); }
+.project-icon { font-size: 2rem; margin-bottom: 1rem; }
+.project-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.project-desc { font-size: 0.875rem; color: rgba(168,216,176,0.8); line-height: 1.65; margin-bottom: 1.25rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag {
+  font-family: 'DM Mono', monospace; font-size: 0.68rem;
+  padding: 0.25rem 0.6rem; border-radius: 2rem;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.6); letter-spacing: 0.04em;
+}
+.project-link {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--green-light); text-decoration: none;
+  margin-top: 1rem; letter-spacing: 0.02em;
+  transition: gap 0.2s;
+}
+.project-link:hover { gap: 0.6rem; }
+
+/* ── SKILLS ── */
+#skills { background: var(--white); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.skill-category {
+  background: var(--cream);
+  border-radius: 1.25rem; padding: 2rem;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.skill-category:hover { box-shadow: var(--shadow); }
+.skill-cat-title { font-size: 0.9rem; font-weight: 700; color: var(--green-deep); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+.skill-items { display: flex; flex-direction: column; gap: 0.75rem; }
+.skill-item {}
+.skill-name { font-size: 0.82rem; color: var(--text-mid); font-weight: 500; margin-bottom: 0.35rem; display: flex; justify-content: space-between; }
+.skill-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.skill-fill { height: 100%; background: linear-gradient(to right, var(--green-mid), var(--green-bright)); border-radius: 3px; transition: width 1s ease-out; }
+
+/* ── PUBLICATIONS / RESEARCH ── */
+#research { background: var(--cream); }
+.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+.research-card {
+  background: var(--white);
+  border-radius: 1rem; padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green-bright);
+  transition: all 0.25s;
+}
+.research-card:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+.research-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.research-title { font-size: 0.95rem; font-weight: 600; color: var(--green-deep); line-height: 1.45; margin-bottom: 0.5rem; }
+.research-meta { font-size: 0.8rem; color: var(--text-light); }
+
+/* ── CONTACT ── */
+#contact {
+  background: linear-gradient(160deg, var(--green-deep) 0%, #0d3d20 100%);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+#contact::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(45,138,78,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+#contact .section-label { color: var(--green-light); }
+#contact .section-title { color: var(--white); }
+#contact .section-sub { color: var(--green-pale); margin: 0 auto 3rem; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; max-width: 800px; margin: 0 auto 3rem; }
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1rem; padding: 1.5rem;
+  text-align: center; text-decoration: none;
+  transition: all 0.25s;
+  display: block;
+}
+.contact-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+.contact-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.contact-card-label { font-size: 0.75rem; color: var(--green-light); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+.contact-card-value { font-size: 0.875rem; color: var(--white); font-weight: 500; word-break: break-all; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green-deep);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 8vw;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-text { font-size: 0.8rem; color: rgba(168,216,176,0.5); }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--green-pale); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider { width: 60px; height: 3px; background: linear-gradient(to right, var(--green-bright), var(--green-pale)); border-radius: 3px; margin-bottom: 2rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 8rem 6vw 2rem; }
+  .hero-right { padding: 2rem 6vw 4rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  nav { padding: 0.875rem 4vw; }
+  .nav-links { gap: 1.25rem; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  section { padding: 4rem 6vw; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+/* ── ANIMATIONS ── */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Moniruzz<span>aman</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <div class="hero-badge">31st BCS Agriculture Cadre · DAE Bangladesh</div>
+    <h1 class="hero-name">Abu Md.<br><span class="highlight">Moniruzzaman</span></h1>
+    <p class="hero-title">Additional Deputy Director (Horticulture)</p>
+    <p class="hero-sub">Department of Agricultural Extension · Kurigram</p>
+    <p class="hero-tagline">"Transforming Bangladesh's agricultural extension from paper-based to AI-powered — bringing science, data, and connectivity into the hands of smallholder farmers."</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="card-avatar">🌾</div>
+      <div class="card-name">Abu Md. Moniruzzaman</div>
+      <div class="card-role">Additional Deputy Director (Horticulture)<br>DAE, Government of Bangladesh</div>
+      <div class="card-stats">
+        <div class="stat-box">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Years Field Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Digital Apps Built</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Postings Across BD</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">102</div>
+          <div class="stat-label">Pesticides in DB</div>
+        </div>
+      </div>
+      <div class="card-contact">
+        <div class="contact-item"><span>📞</span> 01712663740</div>
+        <div class="contact-item"><span>✉️</span> mithun.hstu@gmail.com</div>
+        <div class="contact-item"><span>💻</span> github.com/moniruzjaman</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-sidebar fade-in">
+      <div class="section-label">Background</div>
+      <h2 class="section-title" style="font-size:2rem;">Who I Am</h2>
+      <div class="divider"></div>
+      <div class="expertise-list">
+        <div class="expertise-item"><span class="expertise-icon">🌿</span><span class="expertise-text">CABI Plantwise Diagnostic Methodology</span></div>
+        <div class="expertise-item"><span class="expertise-icon">🤖</span><span class="expertise-text">AI-Powered Agricultural Tools</span></div>
+        <div class="expertise-item"><span class="expertise-icon">📱</span><span class="expertise-text">React / React Native Developer</span></div>
+        <div class="expertise-item"><span class="expertise-icon">🌾</span><span class="expertise-text">IPM & Farmer Field Schools</span></div>
+        <div class="expertise-item"><span class="expertise-icon">🔗</span><span class="expertise-text">Blockchain for Agricultural Transparency</span></div>
+        <div class="expertise-item"><span class="expertise-icon">📺</span><span class="expertise-text">AgriWisdom YouTube Content Creator</span></div>
+      </div>
+    </div>
+    <div class="about-body fade-in">
+      <div class="section-label">Professional Summary</div>
+      <h2 class="section-title" style="font-size:2.2rem;">Extension Officer &amp; Digital Transformer</h2>
+      <div class="divider"></div>
+      <p>Abu Md. Moniruzzaman is an Additional Deputy Director (Horticulture) at the Department of Agricultural Extension (DAE), Government of Bangladesh, posted at Kurigram. A member of the 31st BCS (Agriculture) Cadre, he brings a distinctive blend of corporate leadership, entrepreneurial acumen, and field-level extension expertise.</p>
+      <p>His professional journey spans from corporate sales management (Samsung, Symphony) and agro-entrepreneurship (Nagar Krishak Limited) to civil service — equipping him with rare competencies in resource optimization, modern management, and technology-driven agricultural transformation. He holds an MBA from North South University and a B.Sc. Agriculture from HSTU.</p>
+      <p>With over 8 years of field experience across geographically diverse settings — haor wetlands of Sunamganj, hill tracts of Rangamati, and plains of Rangpur — he has consistently championed sustainable agriculture, digital extension services, and evidence-based crop management for Bangladesh's smallholder farmers.</p>
+      <div class="vision-box">
+        <p>"Transforming Bangladesh's agricultural extension from paper-based to AI-powered — bringing science, data, and connectivity directly into the hands of smallholder farmers, while building a Smart Bangladesh through technology, transparency, and field-level dedication."</p>
+        <div class="vision-author">— Abu Md. Moniruzzaman, Vision Statement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-label fade-in">Career Journey</div>
+  <h2 class="section-title fade-in">Civil Service Timeline</h2>
+  <div class="divider fade-in"></div>
+  <p class="section-sub fade-in">Diverse postings across Bangladesh's most challenging agricultural geographies.</p>
+  <div class="timeline">
+    <div class="timeline-item current fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2024 – Present</div>
+      <div class="timeline-role">Additional Deputy Director (Horticulture)</div>
+      <div class="timeline-location">📍 DAE, Kurigram</div>
+      <div class="timeline-desc">District strategic leadership for horticulture extension. Overseeing digital transformation of extension services, AI app deployment, and farmer outreach in the northern river delta region.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2022 – 2024</div>
+      <div class="timeline-role">Upazila Agriculture Officer</div>
+      <div class="timeline-location">📍 Rangpur Sadar & Kaunia, Rangpur</div>
+      <div class="timeline-desc">Plains agro-extension work. Implemented digital farmer services and crop advisory programs across the fertile Rangpur plains.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2021 – 2022</div>
+      <div class="timeline-role">Upazila Agriculture Officer</div>
+      <div class="timeline-location">📍 Rangamati Sadar & Naniarchar, Rangamati</div>
+      <div class="timeline-desc">Hill tracts agriculture extension in CHT. Developed deep understanding of indigenous farming systems and upland crop management.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2021</div>
+      <div class="timeline-role">Instructor, Agriculture Training Institute (ATI)</div>
+      <div class="timeline-location">📍 Bangladesh</div>
+      <div class="timeline-desc">Technical knowledge transfer to field extension officers. Developed curriculum materials for modern crop management techniques.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2018 – 2021</div>
+      <div class="timeline-role">Upazila Agriculture Officer</div>
+      <div class="timeline-location">📍 Dirai & Shalla, Sunamganj</div>
+      <div class="timeline-desc">Haor wetland crop management. Specialized in flood-resilient agriculture and disaster-adaptive farming strategies for the seasonally inundated haor ecosystem.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">January 2017</div>
+      <div class="timeline-role">Agricultural Extension Officer (Joining)</div>
+      <div class="timeline-location">📍 Natore Sadar</div>
+      <div class="timeline-desc">Commencement of civil service. Began field-level extension work serving smallholder farmers across Natore district.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label fade-in">Digital Innovation</div>
+  <h2 class="section-title fade-in">AgriTech Projects</h2>
+  <div class="divider fade-in" style="background:linear-gradient(to right,var(--green-light),rgba(255,255,255,0.2))"></div>
+  <p class="section-sub fade-in">AI-powered tools built to modernize agricultural extension services for Bangladesh's farmers.</p>
+  <div class="projects-grid">
+    <div class="project-card fade-in" style="--project-accent:#4ab870">
+      <div class="project-icon">🔬</div>
+      <div class="project-title">উদ্ভিদ গোয়েন্দা — Plant Detective</div>
+      <div class="project-desc">React/Vite web app integrating Claude AI for crop disease diagnosis using CABI Plantwise Ready Reckoner methodology. Features 7-tab Bengali UI, real-time GPS weather, voice input, 102 DAE-registered pesticides, and 5-step diagnostic protocol with Abiotic/Biotic gate.</div>
+      <div class="project-tags">
+        <span class="tag">React/Vite</span>
+        <span class="tag">Claude AI</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">CABI Plantwise</span>
+        <span class="tag">Bengali NLP</span>
+      </div>
+      <a href="https://cabi-diagnosis.vercel.app" class="project-link" target="_blank">Live App →</a>
+    </div>
+    <div class="project-card fade-in" style="--project-accent:#c9a227">
+      <div class="project-icon">📱</div>
+      <div class="project-title">Krishi AI Mobile App</div>
+      <div class="project-desc">React Native mobile application with Cloudflare Worker backend for AI-based crop advisory. Features MobileNetV2 TFLite disease detection, 17 agricultural tool screens, zero API keys in APK, secure EAS build pipeline deployment.</div>
+      <div class="project-tags">
+        <span class="tag">React Native</span>
+        <span class="tag">TFLite</span>
+        <span class="tag">Cloudflare Workers</span>
+        <span class="tag">EAS Build</span>
+      </div>
+      <a href="https://github.com/moniruzjaman" class="project-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="project-card fade-in" style="--project-accent:#e8c55a">
+      <div class="project-icon">🪪</div>
+      <div class="project-title">কৃষক কার্ড — Krishak Card</div>
+      <div class="project-desc">Digital farmer services portal with live DAE market prices from market.dam.gov.bd, district selector, 30-minute edge caching, 11 integrated farmer services, and Bangladesh national emblem branding with Noto Serif Bengali typography.</div>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">Vercel</span>
+        <span class="tag">DAE API</span>
+        <span class="tag">Noto Bengali</span>
+      </div>
+      <a href="https://github.com/moniruzjaman/krishak-card" class="project-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="project-card fade-in" style="--project-accent:#6bcf8a">
+      <div class="project-icon">🎮</div>
+      <div class="project-title">স্বশিক্ষা কৃষি প্রকল্প — IPM Game</div>
+      <div class="project-desc">Single-file HTML5 Bengali-language IPM educational game teaching a 5-step methodology (দেখি•বুঝি•মাপে•ভাব•ঠিক কর) across three rice scenarios — Leaf Blast, Stem Borer, Nitrogen Deficiency — with AI-generated SVG crop illustrations.</div>
+      <div class="project-tags">
+        <span class="tag">HTML5</span>
+        <span class="tag">Bengali</span>
+        <span class="tag">IPM/FFS</span>
+        <span class="tag">Anthropic API</span>
+      </div>
+    </div>
+    <div class="project-card fade-in" style="--project-accent:#e8935a">
+      <div class="project-icon">📺</div>
+      <div class="project-title">AgriWisdom YouTube Channel</div>
+      <div class="project-desc">Bengali-language agricultural extension channel producing AI-generated animated explainer videos. Semi-automated via Google Sheets + Apps Script with Claude API for bilingual metadata and YouTube Data API for direct publishing.</div>
+      <div class="project-tags">
+        <span class="tag">YouTube</span>
+        <span class="tag">Claude API</span>
+        <span class="tag">Apps Script</span>
+        <span class="tag">Bengali</span>
+      </div>
+      <a href="https://www.youtube.com/@AgriWisdomBd" class="project-link" target="_blank">@AgriWisdomBd →</a>
+    </div>
+    <div class="project-card fade-in" style="--project-accent:#a87cc9">
+      <div class="project-icon">⛓️</div>
+      <div class="project-title">Blockchain Fertilizer Tracking</div>
+      <div class="project-desc">Hyperledger Fabric-based fertilizer subsidy diversion prevention system using SHA-256 hashing, NID-based role access, and smart contract audit trails. Designed to eliminate corruption in Bangladesh's fertilizer subsidy supply chain.</div>
+      <div class="project-tags">
+        <span class="tag">Hyperledger Fabric</span>
+        <span class="tag">SHA-256</span>
+        <span class="tag">Smart Contracts</span>
+        <span class="tag">DAE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label fade-in">Competencies</div>
+  <h2 class="section-title fade-in">Skills & Expertise</h2>
+  <div class="divider fade-in"></div>
+  <div class="skills-grid">
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title">🌾 Agricultural Science</div>
+      <div class="skill-items">
+        <div class="skill-item"><div class="skill-name"><span>CABI Plantwise Diagnostics</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>IPM / Crop Protection</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Horticulture Management</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Haor/Hill Tract Agronomy</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Farmer Field Schools</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88%" style="width:0"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title">💻 Software Development</div>
+      <div class="skill-items">
+        <div class="skill-item"><div class="skill-name"><span>React / React Native</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Vite / Node.js</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Vercel Serverless Functions</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Cloudflare Workers</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Google Apps Script</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%" style="width:0"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title">🤖 AI & Data</div>
+      <div class="skill-items">
+        <div class="skill-item"><div class="skill-name"><span>Claude AI / Anthropic API</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Gemini / Groq APIs</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Bengali NLP / TTS / ASR</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>TFLite / MobileNetV2</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Blockchain (Hyperledger)</span><span>72%</span></div><div class="skill-bar"><div class="skill-fill" data-width="72%" style="width:0"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title">🏛️ Management & Policy</div>
+      <div class="skill-items">
+        <div class="skill-item"><div class="skill-name"><span>Agricultural Policy Analysis</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Extension Programme Mgmt</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Strategic Planning (MBA)</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Corporate Sales Management</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78%" style="width:0"></div></div></div>
+        <div class="skill-item"><div class="skill-name"><span>Report Writing & Proposals</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88%" style="width:0"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH / PUBLICATIONS -->
+<section id="research">
+  <div class="section-label fade-in">Knowledge Work</div>
+  <h2 class="section-title fade-in">Research & Contributions</h2>
+  <div class="divider fade-in"></div>
+  <p class="section-sub fade-in">Policy briefs, innovation proposals, and agricultural knowledge contributions.</p>
+  <div class="research-grid">
+    <div class="research-card fade-in">
+      <div class="research-type">Policy Brief · 2025–26</div>
+      <div class="research-title">Digital Agricultural Transformation & the Krishak Card Roadmap</div>
+      <div class="research-meta">DAE Planning, Project Implementation & ICT Wing · Submitted to PARTNER Project</div>
+    </div>
+    <div class="research-card fade-in">
+      <div class="research-type">Innovation Proposal · CIRDAP 2026</div>
+      <div class="research-title">GreenLoop 3.0: Blockchain-Enabled Circular Agriculture for Rural Empowerment</div>
+      <div class="research-meta">CIRDAP-REEDS International Rural Development Innovation Challenge · Asia-Pacific</div>
+    </div>
+    <div class="research-card fade-in">
+      <div class="research-type">Technical Article · 2025</div>
+      <div class="research-title">Smart Integrated Nutrient Management for T. Aman: Boosting Yields, Cutting Costs</div>
+      <div class="research-meta">DAE Bangladesh · SPAD-monitored dosing & foliar nutrition methodology</div>
+    </div>
+    <div class="research-card fade-in">
+      <div class="research-type">Innovation Proposal · 2026</div>
+      <div class="research-title">Blockchain-Based Fertilizer e-Bill Tracking System</div>
+      <div class="research-meta">Hyperledger Fabric architecture · SHA-256 · NID-based role access control</div>
+    </div>
+    <div class="research-card fade-in">
+      <div class="research-type">Urban Agriculture · 2010–11</div>
+      <div class="research-title">Nagar Krishak Limited — Urban Rooftop Farming Pioneer</div>
+      <div class="research-meta">First-mover in Bangladesh's urban agriculture movement · Mirpur-Gabtoli, Dhaka</div>
+    </div>
+    <div class="research-card fade-in">
+      <div class="research-type">Digital Extension · 2024–Present</div>
+      <div class="research-title">Integrated Nutrient Management in Field Crops</div>
+      <div class="research-meta">Comprehensive guide for field-level extension officers across Bangladesh</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--white)">
+  <div class="section-label fade-in">Academic Background</div>
+  <h2 class="section-title fade-in">Education</h2>
+  <div class="divider fade-in"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+    <div class="skill-category fade-in" style="border-left:4px solid var(--gold)">
+      <div style="font-size:2rem;margin-bottom:1rem">🎓</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">MBA · 2011</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--green-deep);margin-bottom:0.25rem">Master of Business Administration</div>
+      <div style="font-size:0.875rem;color:var(--text-mid);margin-bottom:0.25rem">North South University, Dhaka</div>
+      <div style="font-size:0.8rem;color:var(--text-light)">Marketing · CGPA 3.13/4.00</div>
+    </div>
+    <div class="skill-category fade-in" style="border-left:4px solid var(--green-bright)">
+      <div style="font-size:2rem;margin-bottom:1rem">🌾</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">B.Sc. Ag. (Hons.) · 2008</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--green-deep);margin-bottom:0.25rem">Bachelor of Science in Agriculture</div>
+      <div style="font-size:0.875rem;color:var(--text-mid);margin-bottom:0.25rem">Hajee Mohammad Danesh S&T University (HSTU)</div>
+      <div style="font-size:0.8rem;color:var(--text-light)">Agriculture Science · CGPA 2.91</div>
+    </div>
+    <div class="skill-category fade-in" style="border-left:4px solid var(--text-light)">
+      <div style="font-size:2rem;margin-bottom:1rem">📚</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">HSC · 2002 | SSC · 2000</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--green-deep);margin-bottom:0.25rem">Higher & Secondary Education</div>
+      <div style="font-size:0.875rem;color:var(--text-mid);margin-bottom:0.25rem">Rangpur Cantonment Public School & College<br>Dinajpur Zilla School</div>
+      <div style="font-size:0.8rem;color:var(--text-light)">Rajshahi Board · First Division (both)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label fade-in">Get In Touch</div>
+  <h2 class="section-title fade-in">Let's Connect</h2>
+  <div class="divider fade-in" style="background:linear-gradient(to right,var(--green-light),rgba(255,255,255,0.2));margin:0 auto 1.5rem"></div>
+  <p class="section-sub fade-in">Open to collaboration on agricultural digital innovation, extension research, and agritech development projects.</p>
+  <div class="contact-grid">
+    <a href="tel:+8801712663740" class="contact-card fade-in">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-value">01712663740</div>
+    </a>
+    <a href="mailto:mithun.hstu@gmail.com" class="contact-card fade-in">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">mithun.hstu@gmail.com</div>
+    </a>
+    <a href="https://github.com/moniruzjaman" target="_blank" class="contact-card fade-in">
+      <div class="contact-card-icon">💻</div>
+      <div class="contact-card-label">GitHub</div>
+      <div class="contact-card-value">moniruzjaman</div>
+    </a>
+    <a href="https://www.youtube.com/@AgriWisdomBd" target="_blank" class="contact-card fade-in">
+      <div class="contact-card-icon">📺</div>
+      <div class="contact-card-label">YouTube</div>
+      <div class="contact-card-value">@AgriWisdomBd</div>
+    </a>
+    <a href="https://www.dae.kurigram.gov.bd" target="_blank" class="contact-card fade-in">
+      <div class="contact-card-icon">🏛️</div>
+      <div class="contact-card-label">Official</div>
+      <div class="contact-card-value">dae.kurigram.gov.bd</div>
+    </a>
+  </div>
+  <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:1rem;max-width:600px;margin-left:auto;margin-right:auto;text-align:center" class="fade-in">
+    <div style="font-size:0.75rem;color:var(--green-light);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Location</div>
+    <div style="font-size:0.95rem;color:var(--white)">Additional Deputy Director (Horticulture)<br>Department of Agricultural Extension, Kurigram<br>Government of the People's Republic of Bangladesh</div>
+    <div style="margin-top:0.75rem;font-size:0.8rem;color:var(--green-pale)">Native: Birole Upazila, Dinajpur District</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Abu Md. Moniruzzaman</div>
+  <div class="footer-text">31st BCS Agriculture Cadre · Additional Deputy Director (Horticulture) · DAE Bangladesh</div>
+  <div class="footer-text">Built with precision · © 2025</div>
+</footer>
+
+<script>
+// Nav scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Intersection observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Skill bar animation on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+        fill.style.width = fill.dataset.width;
+      });
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-category').forEach(el => barObserver.observe(el));
+</script>
+</body>
+</html>
